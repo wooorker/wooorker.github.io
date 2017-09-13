@@ -1,0 +1,217 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #333542;
+}
+body {
+  color: #fff;
+  text-align: center;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  background: url(../images/bg-big.png) no-repeat;
+  padding-top: 48px;
+}
+.bg-blur {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 -20px;
+  background-size: cover;
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+.wrapper-inner{
+  position: absolute;
+  top: 48px;
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  background-color: rgba(0,0,0,.68);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+/*
+ * Cover
+ */
+.cover-heading{
+  width: 894px;
+  font-size: 52px;
+  /* font-family: PingFangSC-Semibold; */
+  margin: 20px auto 70px;
+  color: #FFFFFF;
+  letter-spacing: 1.64px;
+  line-height: 54px;
+  overflow: hidden;
+  font-weight: bold;
+}
+.cover-heading span{
+  margin-right: 20px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  display: block;
+  float: left;
+  position: relative;
+  border-width: 2px;
+}
+.cover-heading span:last-child{
+  margin-right: 0;
+}
+.cover-heading span i{
+  display: inline-block;
+  height: 2px;
+  width: 88%;
+  background: rgba(221, 221, 221, 0.4);
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+.cover-heading span.active{
+  border-bottom: 2px solid rgba(221, 221, 221, 0.15);
+}
+.cover-heading span:nth-child(1).active{
+  color: #638afd;
+}
+.cover-heading span:nth-child(2).active{
+  color: #3bcc2b;
+}
+.cover-heading span:nth-child(3).active{
+  color: #f37e01;
+}
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-wrapper{
+  margin-top: 135px;
+}
+.cover .btn-lg {
+  padding: 10px 50px;
+  margin: 0 45px;
+  /* font-weight: lighter; */
+  /* text-shadow: -1px 0px 0px #13C444; */
+}
+.cover .btn-success{
+  background: #13C444;
+}
+.cover .btn-default {
+  color: #13C444;
+  border-color: #13C444;
+  background: none;
+}
+
+.cover .lead{
+  font-family: PingFangSC-Light;
+  margin-bottom: 7px;
+  letter-spacing: 0.5px;
+}
+.inner-slide .item-slide{
+  display: none;
+}
+.inner-slide .current{
+  display: block;
+}
+
+.advant-text{
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: left;
+  font-weight: lighter;
+}
+.advant-text p:before{
+  content: '•';
+  padding-right: 7px;
+}
+.advant-text p[data-view="smarter"]:before{
+  color: #638afd;
+}
+.advant-text p[data-view="simpler"]:before{
+  color: #3bcc2b;
+  text-shadow: 1px 1px 1px #3bcc2b;
+}
+.advant-text p[data-view="beautiful"]:before{
+  color: #f37e01;
+  text-shadow: 1px 1px 1px #f37e01;
+}
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+@media (min-width: 768px){
+  .lead {
+      font-size: 28px;
+  }
+}
+
+@media (min-width: 992px) {
+  .cover-container {
+    width: 1200px;
+  }
+  .site-wrapper{
+    width:1500px; 
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,103 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+.btn-success,
+.btn-success:hover,
+.btn-success:focus{
+  border: 0;
+}
+/*
+ * Base structure
+ */
+body {
+  color: #fff;
+  text-align: center;
+}
+
+/*
+ * Header
+ */
+ .navbar{
+  min-height: 48px;
+  border: 0;
+ }
+ .navbar-brand{
+  height: 48px;
+  padding: 11px 15px;
+ }
+.nav>li>a>img,#menu>li>a>img{
+  margin-right: 5px;
+  width: 30px;
+}
+.nav-logo{
+  display: inline-block;
+  width: 102px;
+  height: 26px;
+  background: url(../images/logo.png) no-repeat;
+  background-size: 102px auto;
+}
+.nav-txt{
+  float: right;
+}
+.navbar-nav>li>a.flag-wrap{
+  padding-top: 14px;
+  padding-bottom: 13px;
+}
+.caret{
+  border: 0;
+  background: url(../images/menu-down.png) no-repeat;
+  width: 7px;
+  height: 5px;
+}
+
+.container{
+  padding: 0;
+}
+
+.text-right{
+  text-align: right;
+}
+.text-left{
+  text-align: left;
+}
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+
+  .mastfoot {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .masthead-nav > li.nav-item {
+    margin-left: 50px;
+    font-size: 14px;
+  }
+  #navbar{
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+}
+
+@media (min-width: 992px) {
+  .mastfoot, {
+    width: 1200px;
+  }
+}

@@ -1,0 +1,68 @@
+body {
+ 	padding-top: 50px;
+  color: #333333;
+}
+.form-control{
+  border: 1px solid #E6E6E6;
+  border-radius: 5px;
+  box-shadow: none;
+}
+.starter-template {
+  	padding: 0;
+    margin: 0;
+  	text-align: center;
+}
+.page-logo{
+  margin: 100px auto 30px;
+}
+.starter-template h1{
+  font-size: 38px;
+  font-weight: normal;
+  color: #3D3949;
+  letter-spacing: -0.38px;
+  line-height: 38px;
+  margin-bottom: 18px;
+}
+.starter-template p.lead{
+  font-family: Calibri-Italic;
+  font-size: 20px;
+  color: #8B8A8E;
+  letter-spacing: 0.35px;
+  line-height: 23px;
+}
+.form-container .btn-lg {
+  padding: 10px 78px;
+  margin: 0 45px;
+  font-weight: lighter;
+  text-shadow: -1px 0px 0px #4cae4c;
+}
+.btn-success{
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 0.24px;
+  line-height: 16px;
+  background: #13C444;
+  box-shadow: 0 0 7px 0 #B1E2D1;
+  border-radius: 6px;
+}
+.form-horizontal .form-group{
+	position: relative;
+  margin-bottom: 30px;
+}
+.form-container{
+	margin: 0 auto;
+}
+.form-control-feedback{
+  background: url(../images/email.png) no-repeat;
+  background-position: 6px 11px;
+  background-size: 26px;
+}
+textarea.form-control{
+  height: 130px;
+}
+@media (min-width: 768px){
+  .form-container{
+    margin-top: 36px;
+		width: 650px;
+	}
+}
