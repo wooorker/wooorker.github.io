@@ -19,8 +19,7 @@ body {
   border: 1px solid #E6E6E6;
   border-radius: 5px;
   box-shadow: none;
-  font-family: Calibri-Italic;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.72px;
   line-height: 18px;
   font-weight: lighter;
@@ -31,22 +30,25 @@ body {
   	text-align: center;
 }
 .page-logo{
-  margin: 100px auto 30px;
+  margin: 50px auto 30px;
 }
 .starter-template h1{
-  font-family: PingFangSC-Regular;
-  font-size: 38px;
-  color: #3D3949;
+  font-size: 32px;
+  color: #333542;
   letter-spacing: -0.38px;
-  line-height: 38px;
+  line-height: 50px;
   margin-bottom: 18px;
+  font-weight: 300;
 }
 .starter-template p.lead{
-  font-family: Calibri-Italic;
-  font-size: 20px;
+  font-size: 16px;
   color: #8B8A8E;
   letter-spacing: 0.35px;
-  line-height: 23px;
+  line-height: 28px;
+  width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  text-indent: 32px;
 }
 .form-container .btn-lg {
   padding: 10px 78px;
@@ -83,4 +85,16 @@ textarea.form-control{
     margin-top: 36px;
 		width: 650px;
 	}
+}
+@media (max-width: 640px) {
+  .form-horizontal .form-group{
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .page-logo{
+    margin-top: 30px;
+  }
+  .form-container{
+    margin-bottom: 60px;
+  }
 }

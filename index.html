@@ -7,7 +7,7 @@
         <meta name="description" content="Floow is a great flowcharts tool for Mac. With magical design and interaction, you use fewer steps to edit, drag, move or connect the nodes.">
         <meta name="author" content="">
         <link rel="icon" href="./assets/images/favicon.ico">
-        <title>The flowcharts for Mac.</title>
+        <title>Floow | The flowcharts for Mac.</title>
         <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
         <link href="./assets/css/common.css" rel="stylesheet">
         <link href="./assets/css/cover.css" rel="stylesheet">
@@ -30,8 +30,8 @@
                         <li class="dropdown nav-item">
                             <a href="#" class="dropdown-toggle flag-wrap" id="selected" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="./assets/images/flag/usa.png" /> <span class="caret"></span></a>
                             <ul class="dropdown-menu" id="menu">
-                                <li data-select="en_US"><a href="#"><img src="./assets/images/flag/usa.png" /> English</a></li>
-                                <li data-select="zh_CN"><a href="#"><img src="./assets/images/flag/china.png" /> 简体中文</a></li>
+                                <li data-select="en-US"><a href="#en"><img src="./assets/images/flag/usa.png" /> English</a></li>
+                                <li data-select="zh-CN"><a href="#zh"><img src="./assets/images/flag/china.png" /> 简体中文</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -43,33 +43,40 @@
             <div class="site-wrapper-inner">
                 <div class="cover-container">
                     <div class="inner cover">
-                        <h1 class="cover-heading show-title"><span id="smarter" class="active" language="msg_smarter">SMARTER.</span><span id="simpler">SIMPLER.</span><span id="beautiful">BEAUTIFUL.</span></h1>
+                        <p class="floow-desc" language="msg_best">The best flowcharts for Mac.</p>
+                        <table class="cover-heading show-title">
+                            <tr>
+                                <td class="active"><span id="smarter"><b language="msg_smarter">SMARTER.</b><i class="border-bg"></i></span></td>
+                                <td><span id="simpler"><b language="msg_simpler">SIMPLER.</b><i class="border-bg"></i></span></td>
+                                <td><span id="beautiful"><b language="msg_beautiful">BEAUTIFUL.</b><i class="border-bg"></i></span></td>
+                            </tr>
+                        </table>
                         <div class="inner-slide">
                             <div class="item-slide current show-content">
                                 <table class="advant-text">
-                                    <tr><td><p class="lead" data-view="smarter">Reasonable layout increase productivity.</p></td></tr>
-                                    <tr><td><p class="lead" data-view="smarter">Intelligent cooperation along with your thought.</p></td></tr>
-                                    <tr><td><p class="lead" data-view="smarter">Muti-function Node helps you focus on what you want.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="smarter" language="msg_smarter01">Reasonable layout increase productivity.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="smarter" language="msg_smarter02">Intelligent cooperation along with your thought.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="smarter" language="msg_smarter03">Muti-funciton Node helps you focus on what you want.</p></td></tr>
                                 </table>
                             </div>
                             <div class="item-slide show-content">
                                 <table class="advant-text">
-                                    <tr><td><p class="lead" data-view="simpler">Automatically detect line between Node.</p></td></tr>
-                                    <tr><td><p class="lead" data-view="simpler">Easily edit node's document easily edit.</p></td></tr>
-                                    <tr><td><p class="lead" data-view="simpler">Advanced draw experience.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="simpler" language="msg_simpler01">Automatically detect line between Node.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="simpler" language="msg_simpler02">Easily edit node’s document.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="simpler" language="msg_simpler03">Advanced draw experience.</p></td></tr>
                                 </table>
                             </div>
                             <div class="item-slide show-content">
                                 <table class="advant-text">
-                                    <tr><td><p class="lead" data-view="beautiful">Automatically detect line between Node.</p></td></tr>
-                                    <tr><td><p class="lead" data-view="beautiful">Easily edit node's document easily edit.</p></td></tr>
-                                    <tr><td><p class="lead" data-view="beautiful">Advanced draw experience.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="beautiful" language="msg_beautiful01">Magical design and interaction.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="beautiful" language="msg_beautiful02">Beautiful themes and typography.</p></td></tr>
+                                    <tr><td><p class="lead" data-view="beautiful" language="msg_beautiful03">Clean and Intuitive Workspace.</p></td></tr>
                                 </table>
                             </div>
                         </div>
                         <p class="lead btn-wrapper show-btn">
-                            <a href="more.html#started" class="btn btn-lg btn-success">Get Started</a>
-                            <a href="more.html#learn" class="btn btn-lg btn-default">Learn More</a>
+                            <a href="more.html#started" class="btn btn-lg btn-success" language="msg_start">Get Started</a>
+                            <a href="more.html#learn" class="btn btn-lg btn-default" language="msg_learn">Learn More</a>
                         </p>
                     </div>
 
@@ -81,10 +88,10 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="./assets/js/jquery.i18n.properties-1.0.9.js"></script>
-        <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./assets/js/jquery.cookie.js"></script>
         <script type="text/javascript" src="./assets/js/slider.js"></script>
         <script type="text/javascript" src="./assets/js/app.js"></script>
     </body>

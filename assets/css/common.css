@@ -85,10 +85,6 @@ body {
   height: 5px;
 }
 
-.container{
-  padding: 0;
-}
-
 .text-right{
   text-align: right;
 }
@@ -112,6 +108,10 @@ body {
     margin-left: 35px;
     margin-right: 35px;
   }
+
+  .container{
+    padding: 0;
+  }
 }
 
 @media (min-width: 992px) {
@@ -119,3 +119,21 @@ body {
     width: 1200px;
   }
 }
+
+@media (max-width: 640px) {
+  .show-btn .btn-lg {
+    padding: 10px 24px;
+    margin: 0 10px;
+    font-size: 13px;
+    border-radius: 3px;
+    font-weight: 400;
+  }
+  .show-btn .btn-default{
+    padding: 9px 23px;
+  }
+}
+
+
+
+
+

@@ -41,12 +41,13 @@ $(function(){
 		var t = time || 1000;
 
 		setTimeout(function(){
+			$('.bg-blur').addClass('bg-filter');
 
 			$(dom).addClass(type).show();
 
 			//执行滑动效果
-			$('.cover-heading').edslider({
-		        nodeFind  : 'span',
+			$('.cover-heading tr').edslider({
+		        nodeFind  : 'td',
 		        sonNode   : 'div.inner-slide',
 		        snodeFind : 'div.item-slide'
 		    });
@@ -86,28 +87,44 @@ $(function(){
 		    mode:'both',
 		    language:lang,
 		    callback: function() {
-		        updateLang();
+		        updateLang(lang);
 		    }
 		});
 	}
 	
 	//更改语言
-	var updateLang = function () {
+	var movePointer = ['msg_smarter','msg_simpler','msg_beautiful'];
+
+	var updateLang = function (lang) {
 		// Accessing values through the map
 		//console.log(data);
 		$('[language]').each(function(){
+			var tag = this.tagName;
 			var _thisTag = $(this).attr('language');
-			$(this).html($.i18n.prop(_thisTag));
+			$(this).attr('selectedLang', 'lang-' + lang);
+			//移动版去掉点
+			if($(window).width() < 640 && $.inArray(_thisTag, movePointer) >= 0){
+				$(this).html($.i18n.prop(_thisTag).replace('.', ''));
+			}else{
+				if( tag == 'INPUT' || tag == 'TEXTAREA' ){
+					$(this).attr('placeholder', $.i18n.prop(_thisTag));
+				}else{
+					$(this).html($.i18n.prop(_thisTag));
+				}
+			}
 		})
 	}
 
 	//获取语言初始化语言
-	var browser = $.i18n.browserLang();
-	//loadBundles(browser);
+	//var browser = $.i18n.browserLang() || 'en_US';
+	var browser = $.cookie('web_lang') || 'en-US';
+	$('#selected img').attr('src', $('#menu li[data-select="'+ browser +'"]').find('img').attr('src'));
+	loadBundles(browser);
 					
 	//切换语言
 	$('#menu li').click(function() {
 		var selection = $(this).attr('data-select');
+		$.cookie('web_lang', selection, { expires: 7 });
 		$('#selected img').attr('src', $(this).find('img').attr('src'));
 		loadBundles(selection);
 	});

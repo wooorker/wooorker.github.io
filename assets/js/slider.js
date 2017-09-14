@@ -60,6 +60,7 @@
 			});
 
 			progress = sliderLi
+				.find('span')
 				.prepend('<i class="s-progress"/>')
 				.find('.s-progress').width(0);
 
@@ -79,10 +80,10 @@
 				current = sliderLi
 					.filter('.active');
 
-				progressWidth = current.width();
+				progressWidth = current.find('span').width();
 
 				sonNodeLi.removeClass('current');
-				sonNodeLi.eq(sliderLi.index(current)).addClass('current animated fadeIn');
+				sonNodeLi.eq(sliderLi.index(current)).addClass('current');
 				
 				sonNodeLi.filter('.current').siblings()
 				.fadeOut(options.animation && options.duration || 0)
@@ -135,10 +136,11 @@
 				paused = false;
 				interact = true;
 				progress.stop();
-				sliderLi.filter('.active').find('i')
+				sliderLi.filter('.active').find('i.border-bg').attr({'style': 'width:'+ (progressWidth - progressElapsed - 4) + 'px'});
+				sliderLi.filter('.active').find('i.s-progress')
 					.show()
 					.animate({
-						width: '+=' + (progressWidth - progressElapsed)
+						width: '+=' + (progressWidth - progressElapsed - 4)
 					}, timeLeft, 'linear', function(){
 						progressReset();
 						next();
@@ -148,14 +150,16 @@
 
 			function progressReset(){
 				progress.stop().width(0);				
+				sliderLi.find('i.border-bg').width(0);				
 				progressElapsed = 0;
 				timeLeft = options.interval;
 			}
 
 			function progressResize(){
+				return;
 				$(window)
 					.resize(function(){
-						progressWidth = sliderLi.filter('.active').width();
+						progressWidth = sliderLi.filter('.active').find('span').width();
 						pause(); interval();
 					}).resize();
 			}
