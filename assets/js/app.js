@@ -1,4 +1,16 @@
 $(function(){
+	//滚动后导航变透明
+	var navOffset = 48;
+    $(window).scroll(function(){  
+        var scrollPos = $(window).scrollTop(); 
+        if(scrollPos >= navOffset){  
+            $(".navbar-inverse").css({'opacity': 0.70});  
+        }else{  
+            $(".navbar-inverse").css({'opacity': 1});;  
+        }  
+    });  
+
+
 	//初始化首页高度（只有首页）
 	if($('.wrapper-inner').length > 0){
 		$('body').css({'height': $(document.body).height(), 'overflow': 'hidden'}); 
@@ -62,7 +74,7 @@ $(function(){
 
 	//500毫秒后执行动画效果
 	if($('.wrapper-inner').length > 0){
-		setAutoFade('.wrapper-inner', 'animated fadeInUp', 500);
+		setAutoFade('.wrapper-inner', 'showWrap', 500);
 	}
 
 	//语言切换
@@ -100,12 +112,65 @@ $(function(){
 		loadBundles(selection);
 	});
 
+	//动态滑到效果
+	var slipNav = function (){
+		var $liCur = $("#change-theme li.active"),  
+        curP = $liCur.position().left,  
+        //curW = $liCur.outerWidth(true),  
+        curW = $liCur.width(),  
+        $slider = $(".nav-line");
+        $slider.stop(true, true).animate({  
+            "left":curP,  
+            "width":curW
+        });
+    };
+
+    var page = 0;
+
+	var autoPlay = function() {
+		var $expert_list = $('#change-theme');   
+		var len_li = $expert_list.find('li').length;      
+		if (page >= len_li-1) {   
+			page = 0;       
+		} else {            
+			page++;       
+		}
+		
+		$expert_list.find('li').removeClass('active');
+		var curLi = $expert_list.find('li').eq(page);
+		curLi.addClass('active');
+		$('.themes-picture img').attr({'src': curLi.attr('data-src'),'alt': curLi.text()});
+
+		slipNav();
+	}
+
 	//切换主题
 	if($('#change-theme').length > 0){
+		//初始运行滑动
+		slipNav();
+
+		//轮播
+    	var t = setInterval(function(){ 
+			autoPlay()
+		}, 3000);
+
+  		//轮播暂停，重启
+    	$('#change-theme').mouseover(function(){
+      		clearInterval(t);
+      	}).mouseout(function(){    
+        	t = setInterval(function(){
+        		autoPlay()
+        	}, 3000);
+        });
+
+		//点击滑到
 		$('#change-theme li').click(function(){
 			$(this).addClass('active');
 			$(this).siblings('li').removeClass('active');
 			$('.themes-picture img').attr({'src': $(this).attr('data-src'),'alt': $(this).text()});
+			page = $(this).index();
+			//执行滑动效果
+			slipNav();
 		})
 	}
 

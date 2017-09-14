@@ -23,12 +23,29 @@ a:hover {
 .btn-success:focus{
   border: 0;
 }
+
+.show-btn .btn-lg {
+  padding: 10px 50px;
+  margin: 0 45px;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+.show-btn .btn-success{
+  background: #13C444;
+}
+.show-btn .btn-default {
+  color: #13C444;
+  border-color: #13C444;
+  background: none;
+}
 /*
  * Base structure
  */
 body {
   color: #fff;
   text-align: center;
+  font-size: 100%;
+  font-family: "Open Sans", "Helvetica Neue", Arial, Verdana, sans-serif;
 }
 
 /*
@@ -44,21 +61,22 @@ body {
  }
 .nav>li>a>img,#menu>li>a>img{
   margin-right: 5px;
-  width: 30px;
+  width: 26px;
 }
 .nav-logo{
   display: inline-block;
-  width: 102px;
-  height: 26px;
+  width: 88px;
+  height: 22px;
   background: url(../images/logo.png) no-repeat;
-  background-size: 102px auto;
+  background-size: 88px auto;
+  margin: 3px 0;
 }
 .nav-txt{
   float: right;
 }
 .navbar-nav>li>a.flag-wrap{
   padding-top: 14px;
-  padding-bottom: 13px;
+  padding-bottom: 14px;
 }
 .caret{
   border: 0;
