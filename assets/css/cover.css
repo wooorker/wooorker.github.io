@@ -275,7 +275,7 @@ body {
 
 @media (min-width: 992px) {
   .cover-container {
-    width: 1200px;
+    max-width: 1200px;
   }
   .site-wrapper{
     width:1300px; 
@@ -283,13 +283,26 @@ body {
   }
 }
 
+@media (max-width: 1024px) and (min-width: 646px){
+  .site-wrapper{
+    width: 100%;
+  }
+  .floow-desc {
+    font-size: 40px;
+  }
+}
+
 
 @media (max-width: 640px){
+  .floow-desc{
+    margin-top: 20px;
+    font-size: 20px;
+  }
   .bg-blur{
     background-position: center;
   }
   .cover-heading{
-    margin-top: 80px;
+    margin-top: 60px;
     margin-bottom: 40px;
     font-size: 46px;
   }

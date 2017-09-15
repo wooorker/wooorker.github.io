@@ -95,6 +95,10 @@ textarea.form-control{
     margin-top: 30px;
   }
   .form-container{
+    margin-top: 30px;
     margin-bottom: 60px;
+  }
+  .starter-template p.lead{
+    width: 100%;
   }
 }

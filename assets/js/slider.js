@@ -70,7 +70,7 @@
 			var timeLeft = options.interval, current, index, paused;
 
 			function init(){				
-				progressResize();
+				//progressResize();
 				sliderLi.length > 1 ? play() : sliderLi.fadeIn(options.duration);
 			}
 
@@ -80,7 +80,7 @@
 				current = sliderLi
 					.filter('.active');
 
-				progressWidth = current.find('span').width();
+				progressWidth = current.find('span b').width();
 
 				sonNodeLi.removeClass('current');
 				sonNodeLi.eq(sliderLi.index(current)).addClass('current');
@@ -94,6 +94,8 @@
 
 				index = sliderLi.index(current) + 1;
 
+
+				sliderLi.filter('.active').find('i.border-bg').attr({'style': 'width:'+ (progressWidth - 8) + 'px'});
 			}
 
 			function next(){
@@ -126,9 +128,9 @@
 
 			function pause(){
 				paused = true;
-				progressElapsed = progress
-					.stop()
-					.width();
+				progress.stop();
+				progressElapsed = sliderLi.filter('.active').find('i.s-progress').width();
+				console.log(progressElapsed);
 				timeLeft = (progressWidth - progressElapsed) * (options.interval / progressWidth);
 			}
 
@@ -136,7 +138,6 @@
 				paused = false;
 				interact = true;
 				progress.stop();
-				sliderLi.filter('.active').find('i.border-bg').attr({'style': 'width:'+ (progressWidth - progressElapsed - 4) + 'px'});
 				sliderLi.filter('.active').find('i.s-progress')
 					.show()
 					.animate({
@@ -160,7 +161,8 @@
 				$(window)
 					.resize(function(){
 						progressWidth = sliderLi.filter('.active').find('span').width();
-						pause(); interval();
+						pause(); 
+						interval();
 					}).resize();
 			}
 

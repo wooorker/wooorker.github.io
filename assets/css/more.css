@@ -311,9 +311,18 @@ body {
   }
   .txt-right{
     padding-left: 54px;
+    float: right;
   }
   .starter-template p[selectedlang="lang-zh-CN"]{
     width: 821px;
+  }
+}
+@media (min-width: 645px) and (max-width: 1024px){
+  .chart-left{
+    width: auto;
+  }
+  .themes-picture img{
+    width: 100%;
   }
 }
 
@@ -352,6 +361,9 @@ body {
   }
   .row{
     margin: 0;
+  }
+  .featurette{
+    margin-top: 40px;
   }
   .simple-image{
     margin-top: -24px;
