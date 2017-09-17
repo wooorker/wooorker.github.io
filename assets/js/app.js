@@ -46,7 +46,7 @@ $(function(){
 			$(dom).addClass(type).show();
 
 			//执行滑动效果
-			$('.cover-heading tr').edslider({
+			_slider = $('.cover-heading tr').edslider({
 		        nodeFind  : 'td',
 		        sonNode   : 'div.inner-slide',
 		        snodeFind : 'div.item-slide'
@@ -54,24 +54,6 @@ $(function(){
 
 		}, t); 
 	};
-
-	/*
-	//初始第一个有点
-	var advant = 'smarter';
-	if($('#'+advant).length > 0){
-		typeWriter(advant);
-	}
-
-	$('.cover-heading span').click(function(){
-		var _this = $(this),_thisAdv = _this.attr('id');
-
-		_this.siblings('span').removeClass('active');
-		_this.addClass('active');
-		$('.advant-text p').attr('data-view', _thisAdv);
-
-		typeWriter(_thisAdv);
-	});
-	*/
 
 	//500毫秒后执行动画效果
 	if($('.wrapper-inner').length > 0){
@@ -96,8 +78,6 @@ $(function(){
 	var movePointer = ['msg_smarter','msg_simpler','msg_beautiful'];
 
 	var updateLang = function (lang) {
-		// Accessing values through the map
-		//console.log(data);
 		$('[language]').each(function(){
 			var tag = this.tagName;
 			var _thisTag = $(this).attr('language');
@@ -117,7 +97,8 @@ $(function(){
 
 	//获取语言初始化语言
 	//var browser = $.i18n.browserLang() || 'en_US';
-	var browser = $.cookie('web_lang') || 'en';
+	var defaultLang = $.cookie('web_lang');
+	var browser = defaultLang == undefined || defaultLang == false ? 'en' : defaultLang;
 	$('#selected img').attr('src', $('#menu li[data-select="'+ browser +'"]').find('img').attr('src'));
 	loadBundles(browser);
 					

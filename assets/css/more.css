@@ -313,7 +313,7 @@ body {
     padding-left: 54px;
     float: right;
   }
-  .starter-template p[selectedlang="lang-zh-CN"]{
+  .starter-template p[selectedlang="lang-zh"]{
     width: 821px;
   }
 }

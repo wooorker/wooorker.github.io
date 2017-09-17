@@ -194,16 +194,6 @@
 				timeLeft = options.interval;
 			}
 
-			function progressResize(){
-				return;
-				$(window)
-					.resize(function(){
-						progressWidth = sliderLi.filter('.active').find('span').width();
-						pause(); 
-						interval();
-					}).resize();
-			}
-
 			function hoverControl(){
 				if(interact){
 					if(slider.hasClass('hover')){

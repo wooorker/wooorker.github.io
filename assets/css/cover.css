@@ -173,7 +173,7 @@ body {
   border-style: solid;
   border-color: transparent;
 }
-.cover-heading b[selectedlang="lang-zh-CN"]{
+.cover-heading b[selectedlang="lang-zh"]{
   letter-spacing: 6px;
 }
 .cover-heading span b{
