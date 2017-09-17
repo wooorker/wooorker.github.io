@@ -1,6 +1,6 @@
 $(function(){
 	//滚动后导航变透明
-	var navOffset = 48;
+	var navOffset = 30;
     $(window).scroll(function(){  
         var scrollPos = $(window).scrollTop(); 
         if(scrollPos >= navOffset){  
@@ -117,7 +117,7 @@ $(function(){
 
 	//获取语言初始化语言
 	//var browser = $.i18n.browserLang() || 'en_US';
-	var browser = $.cookie('web_lang') || 'en-US';
+	var browser = $.cookie('web_lang') || 'en';
 	$('#selected img').attr('src', $('#menu li[data-select="'+ browser +'"]').find('img').attr('src'));
 	loadBundles(browser);
 					

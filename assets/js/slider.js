@@ -59,7 +59,7 @@
 			});
 
 			//绑定触碰事件
-			$('.inner').bind({
+			$('.touch-wrap').bind({
 				"touchstart": function(e) {
 	    			// 判断默认行为是否可以被禁用
 				    if (e.cancelable) {

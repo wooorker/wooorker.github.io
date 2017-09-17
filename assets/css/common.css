@@ -10,18 +10,17 @@ a:hover {
 }
 
 /* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
+.btn-wrapper .btn-default:focus{
+  color: #13C444;
+  border-color: #13C444;
+  background-color: rgba(255, 255, 255, 0);
 }
+
 .btn-success,
 .btn-success:hover,
 .btn-success:focus{
   border: 0;
+  background: #13C444;
 }
 
 .show-btn .btn-lg {
@@ -36,7 +35,7 @@ a:hover {
 .show-btn .btn-default {
   color: #13C444;
   border-color: #13C444;
-  background: none;
+  background-color: rgba(255, 255, 255, 0);
 }
 /*
  * Base structure
@@ -117,6 +116,10 @@ body {
 @media (min-width: 992px) {
   .mastfoot, {
     width: 1200px;
+  }
+  .form-container .btn-lg{
+    padding: 0 ;
+    width: 202px;
   }
 }
 
