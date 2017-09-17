@@ -17,8 +17,7 @@
 			//skin      : 'edslider'
 		};
 
-		var options = $.extend({}, defaults, settings);
-
+		var options = $.extend({}, defaults, settings),windowWidth=$(window).width();
 		this.each(function(){
 
 			//Building (wrapping, validating, setting up)
@@ -51,12 +50,51 @@
 				.addClass('active');
 
 			//Controls (navigation, pagination and progress bar)
-			var position, controls, progress, progressWidth, progressElapsed, interact = false;
+			var position, controls, progress, progressWidth, progressElapsed, interact = false,startX,endX;
 
 			sliderLi.on('click', function(){
 				sliderLi.removeClass('active');
 				$(this).addClass('active');
 				play();
+			});
+
+			//绑定触碰事件
+			$('.inner').bind({
+				"touchstart": function(e) {
+	    			// 判断默认行为是否可以被禁用
+				    if (e.cancelable) {
+				        // 判断默认行为是否已经被禁用
+				        if (!e.defaultPrevented) {
+				            e.preventDefault();
+				        }
+				    }   
+				    startX = e.originalEvent.changedTouches[0].pageX;
+				},
+				"touchend" : function(event){
+					//判断默认行为是否可以被禁用
+					if (event.cancelable) {
+	        			// 判断默认行为是否已经被禁用
+				        if (!event.defaultPrevented) {
+				            event.preventDefault();
+				        }
+				    }  
+					endX = event.originalEvent.changedTouches[0].pageX;
+					var X = endX - startX;
+					var curLi = sliderLi.filter('.active');
+				    if ( X > 0 ) {
+				        var curI = sliderLi.index(curLi) - 1;
+				    	var curIndex =  curI >= 0 ? curI : sliderLi.length - 1;
+				    	sliderLi.removeClass('active');
+				    	sliderLi.eq(curIndex).addClass('active');
+				    	play();                 
+				    }else if ( X < 0 ) {
+				    	var curI = sliderLi.index(curLi) + 1;
+				    	var curIndex =  curI > sliderLi.length - 1 ? 0 : curI;
+				    	sliderLi.removeClass('active');
+				    	sliderLi.eq(curIndex).addClass('active');
+				    	play(); 
+				    } 
+				}
 			});
 
 			progress = sliderLi
@@ -130,7 +168,7 @@
 				paused = true;
 				progress.stop();
 				progressElapsed = sliderLi.filter('.active').find('i.s-progress').width();
-				console.log(progressElapsed);
+				//console.log(progressElapsed);
 				timeLeft = (progressWidth - progressElapsed) * (options.interval / progressWidth);
 			}
 
