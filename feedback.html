@@ -56,13 +56,15 @@
                 <p class="lead" language="msg_very">We appretiate your interest in Floow. Floow is in the state of alpha test and will get beta stage very soon. We would like to keep close communication with you during the birth of it. If you want to join in the test of our beta version, you can leave your email address below.</p>
             </div>
             <div class="row form-container">
-                <form class="form-horizontal" role="form">
+                <div class="alert alert-success" role="alert" style="display: none;"></div>
+                <div class="alert alert-danger" role="alert" style="display: none;"></div>
+                <form class="form-horizontal" role="form" id="feedbackForm">
                     <div class="form-group">
                         <input type="email" class="form-control input-lg" id="exampleInputEmail1" language="msg_email" placeholder="Your email address">
                         <span class="form-control-feedback" aria-hidden="true"></span>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control input-lg" rows="3" language="msg_feedback" placeholder="We would love to hear if you have any feedback for us."></textarea>
+                        <textarea class="form-control input-lg" id="inputText" rows="3" language="msg_feedback" placeholder="We would love to hear if you have any feedback for us."></textarea>
                     </div>
                     <button type="submit" class="btn btn-lg btn-success" language="msg_submit">Submit</button>
                 </form>

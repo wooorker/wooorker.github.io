@@ -172,4 +172,72 @@ $(function(){
 		})
 	}
 
+	//表单验证
+	if($('#feedbackForm').length > 0){
+		var host = window.location.protocol + '//' + window.location.host;
+		
+		var emailReg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+		$('#exampleInputEmail1').focus(function(){ 
+			$(this).parents('div.form-group').removeClass('has-error'); 
+		}).change(function(){
+			var email = $('#exampleInputEmail1').val();
+			if(!emailReg.test(email)){
+				$(this).parents('div.form-group').addClass('has-error');
+				$('.alert-danger').html('Please enter a valid email address.').show();
+			} else {
+				$(this).parents('div.form-group').removeClass('has-error');
+				$('.alert-danger').html('').hide();
+			}
+		});
+
+		$('#inputText').change(function(){
+			var desc = $(this).val();
+			if($.trim(desc) == false){
+				$(this).parents('div.form-group').addClass('has-error');
+				$('.alert-danger').html('This field is required.').show();
+			}else{
+				$(this).parents('div.form-group').removeClass('has-error');
+				$('.alert-danger').html('').hide();
+			}
+		});
+
+		$('#feedbackForm').submit(function(){
+			var email = $('#exampleInputEmail1').val();
+
+			if(!emailReg.test(email)){
+				$('#exampleInputEmail1').parents('div.form-group').addClass('has-error');
+				$('.alert-danger').html('Please enter a valid email address.').show();
+				return false;
+			}
+
+			var txt = $('#inputText').val();
+			if($.trim(txt) == false){
+				$('#inputText').parents('div.form-group').addClass('has-error');
+				$('.alert-danger').html('This field is required.').show();
+				return false;
+			}
+
+			//验证通过，保存到文件
+			$.ajax({
+				'url' : host + '/beautiful/save.php',
+				'data': {'_key':'c1bf55ce2d0f507d3b8f36004c173288','email':email,'feedback':txt},
+				'type': 'post',
+				'dataType': 'json',
+				success: function(data){
+					if(data.status == 1){
+						$('#feedbackForm')[0].reset();
+						$('.alert-danger').html('').hide();
+						$('.alert-success').html(data.info).show();
+						setTimeout(function(){
+							$('.alert-success').html('').hide();
+						}, 2000);
+					} else {
+						$('.alert-danger').html(data.info).show();
+					}
+				}
+			})
+			return false;
+		})
+	}
+
 });
