@@ -219,7 +219,7 @@ $(function(){
 
 			//验证通过，保存到文件
 			$.ajax({
-				'url' : host + '/beautiful/save.php',
+				'url' : host + '/save.php',
 				'data': {'_key':'c1bf55ce2d0f507d3b8f36004c173288','email':email,'feedback':txt},
 				'type': 'post',
 				'dataType': 'json',
